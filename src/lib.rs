@@ -31,7 +31,7 @@
 ///
 /// ```
 /// use assert_unchecked::assert_unchecked;
-/// pub fn copy(from_arr: &[u8], to_arr: &mut [u8]) {
+/// fn copy(from_arr: &[u8], to_arr: &mut [u8]) {
 ///     assert_eq!(from_arr.len(), to_arr.len());
 ///     for i in 0..to_arr.len() {
 ///         // SAFETY: bounds of to_arr is checked outside of loop
@@ -86,7 +86,7 @@ macro_rules! assert_unchecked {
 ///
 /// ```
 /// use assert_unchecked::assert_eq_unchecked;
-/// pub fn get_last(len: usize) -> usize {
+/// fn get_last(len: usize) -> usize {
 ///     if len == 0 {
 ///         return 0;
 ///     }
@@ -150,7 +150,7 @@ macro_rules! assert_eq_unchecked {
 /// use assert_unchecked::{assert_unchecked, assert_ne_unchecked};
 /// // Modifies `a[0]` and `a[delta]`, and then returns `a[0]`.
 /// // delta must be non-zero and delta < a.len().
-/// pub unsafe fn modify_start_and_delta(a: &mut [u8], delta: usize) -> u8 {
+/// unsafe fn modify_start_and_delta(a: &mut [u8], delta: usize) -> u8 {
 ///     // SAFETY: requirements are invariants of the unsafe function.
 ///     assert_unchecked!(delta < a.len());
 ///     // With this assertion, we know that a[delta] does not modify a[0],

@@ -22,7 +22,7 @@ use assert_unchecked::{
     assert_eq_unchecked, assert_ne_unchecked, assert_unchecked, unreachable_unchecked,
 };
 
-pub fn copy(from_arr: &[u8], to_arr: &mut [u8]) {
+fn copy(from_arr: &[u8], to_arr: &mut [u8]) {
     assert_eq!(from_arr.len(), to_arr.len());
     for i in 0..to_arr.len() {
         // SAFETY: bounds of to_arr is checked outside of loop
@@ -32,7 +32,7 @@ pub fn copy(from_arr: &[u8], to_arr: &mut [u8]) {
     }
 }
 
-pub fn get_last(len: usize) -> usize {
+fn get_last(len: usize) -> usize {
     if len == 0 {
         return 0;
     }
@@ -46,7 +46,7 @@ pub fn get_last(len: usize) -> usize {
     v[len - 1]
 }
 
-pub unsafe fn modify_start_and_delta(a: &mut [u8], delta: usize) -> u8 {
+unsafe fn modify_start_and_delta(a: &mut [u8], delta: usize) -> u8 {
     // SAFETY: requirements are invariants of the unsafe function.
     assert_unchecked!(delta < a.len());
     // With this assertion, we know that a[delta] does not modify a[0],
