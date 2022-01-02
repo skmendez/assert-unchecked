@@ -2,6 +2,16 @@
 name = "assert-unchecked"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+repository = "https://github.com/skmendez/assert-unchecked"
+documentation = "https://docs.rs/assert-unchecked/"
+authors = ["skmendez"]
+readme = "README.md"
+
+description = "Unsafe assertions that allow for optimizations in release mode."
+
+keywords = ["assertion", "assert", "unreachable", "unchecked", "debug"]
+categories = ["development-tools::debugging", "no-std"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
