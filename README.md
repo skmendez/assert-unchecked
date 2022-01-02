@@ -12,7 +12,7 @@ Add this to your `Cargo.toml`
 
 ```toml
 [dependencies]
-assert_unchecked = "0.1.1"
+assert_unchecked = "0.1.2"
 ```
 
 ### Examples
