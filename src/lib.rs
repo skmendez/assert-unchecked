@@ -182,7 +182,7 @@ macro_rules! assert_ne_unchecked {
 }
 
 /// Equivalent to the [`unreachable!`] macro in builds with `debug_assertions`
-/// on, and otherwise calls [`unreachable_unchecked`].
+/// on, and otherwise calls [`core::hint::unreachable_unchecked`].
 ///
 /// # Safety
 ///
@@ -209,8 +209,6 @@ macro_rules! assert_ne_unchecked {
 /// assert_eq!(div_1(9, 1), 4);
 /// assert_eq!(div_1(11, u32::MAX), 0);
 /// ```
-///
-/// [`unreachable_unchecked`]: core::hint::unreachable_unchecked
 #[macro_export]
 macro_rules! unreachable_unchecked {
     ($($arg:tt)*) => ({
