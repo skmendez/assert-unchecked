@@ -12,7 +12,7 @@ Add this to your `Cargo.toml`
 
 ```toml
 [dependencies]
-assert_unchecked = "0.1.0"
+assert_unchecked = "0.1.1"
 ```
 
 ### Examples
@@ -46,11 +46,14 @@ fn get_last(len: usize) -> usize {
     v[len - 1]
 }
 
+// Modifies `a[0]` and `a[delta]`, and then returns `a[0]`.
+// delta must be non-zero and delta < a.len().
 unsafe fn modify_start_and_delta(a: &mut [u8], delta: usize) -> u8 {
     // SAFETY: requirements are invariants of the unsafe function.
     assert_unchecked!(delta < a.len());
     // With this assertion, we know that a[delta] does not modify a[0],
     // which means the function can optimize the return value to always be 0.
+    // This also means that all bounds checks can be removed.
     assert_ne_unchecked!(delta, 0);
     a[0] = 0;
     a[delta] = 1;

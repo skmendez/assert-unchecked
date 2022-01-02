@@ -150,6 +150,7 @@ macro_rules! assert_eq_unchecked {
 /// use assert_unchecked::{assert_unchecked, assert_ne_unchecked};
 /// // Modifies `a[0]` and `a[delta]`, and then returns `a[0]`.
 /// // delta must be non-zero and delta < a.len().
+/// // This also means that all bounds checks can be removed.
 /// unsafe fn modify_start_and_delta(a: &mut [u8], delta: usize) -> u8 {
 ///     // SAFETY: requirements are invariants of the unsafe function.
 ///     assert_unchecked!(delta < a.len());
